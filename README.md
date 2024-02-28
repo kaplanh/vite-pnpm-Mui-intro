@@ -1,4 +1,6 @@
-[Vite](https://vitejs.dev/)
+# Vite & Pnpm & Material UI (MUI)
+
+## [Vite](https://vitejs.dev/)
 
 ## Bundle with webpack(creat-react-app)
 <img src="./src//img/webpack.png" alt="">
@@ -7,9 +9,9 @@
 <img src="./src/img/vite.png" alt="">
 - Vite native model yapisiyla birlikte developpment kisminda hepsini bundle olusturmuyor buda zaman kazandiriyor
 
-[Pnpm](https://pnpm.io/installation)
+## [Pnpm](https://pnpm.io/installation)
 
-# Pnpm vite ile react proje ayaga kaldirma
+## Pnpm vite ile react proje ayaga kaldirma
 - pnpm yüklü degilse yükle==> npm install -g pnpm ==>https://pnpm.io/installation
 Sonra 
 
@@ -39,9 +41,55 @@ Sonra
 ```
 
 
-[MUI](https://mui.com/material-ui/)
+## [MUI](https://mui.com/material-ui/)
 ## Default installation
 
 - pnpm add @mui/material @emotion/react @emotion/styled
 - pnpm add @fontsource/roboto
 - pnpm add @mui/icons-material
+
+## Theme
+
+```jsx
+import Typo from "./components/Typo";
+import { createTheme, ThemeProvider } from "@mui/material";
+import { deepOrange, deepPurple, lime } from "@mui/material/colors";
+import TextFieldComp from "./components/TextFieldComp";
+import CardComp from "./components/CardComp";
+import AppbarComp from "./components/AppbarComp";
+
+function App() {
+    const theme = createTheme({
+        palette: {
+            primary: {
+                main: "#bede",
+            },
+            secondary: {
+                main: deepPurple[500],
+            },
+            error: {
+                main: lime["A400"],
+            },
+            koyuMor: {
+                main: deepPurple[500],
+                light: deepPurple[300],
+                dark: deepPurple[800],
+                contrastText: "white",
+            },
+        },
+    });
+    return (
+        <>
+            <ThemeProvider theme={theme}>
+                <AppbarComp/>
+                <Typo />
+                <TextFieldComp />
+                <CardComp/>
+            </ThemeProvider>
+        </>
+    );
+}
+
+export default App;
+
+```
